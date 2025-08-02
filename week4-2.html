@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>REGISTRATION PAGE VALIDATION</title>
+  <script>
+    function UnameValidation() {
+      var fname = document.forms["regform"]["fname"].value;
+      var splchar = "!@#$%^&*()+=-[]\\\';,./{}|\":<>?~";
+
+      if (fname.length < 6) {
+        alert("First name must have at least 6 characters");
+        return false;
+      }
+
+      for (var i = 0; i < fname.length; i++) {
+        if (splchar.indexOf(fname.charAt(i)) != -1) {
+          alert("First name should not contain special characters");
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    function pwdvalidation() {
+      var pw = document.forms["regform"]["pwd"].value;
+      var cpw = document.forms["regform"]["cpwd"].value;
+
+      if (pw.length < 6) {
+        alert("Password must contain at least 6 characters");
+        return false;
+      }
+
+      if (pw != cpw) {
+        alert("Passwords do not match");
+        return false;
+      }
+
+      alert("Password validation has been successful");
+      return true;
+    }
+
+    function emailvalidation() {
+      var email = document.forms["regform"]["email"].value;
+
+      if (email.indexOf('@') == -1 || email.indexOf('.') == -1) {
+        alert("Email must contain '@' and '.'");
+        return false;
+      }
+else
+{
+
+      alert("Email is valid");
+      return true;
+}
+    }
+
+    function phnovalidation() {
+      var ph = document.forms["regform"]["phno"].value;
+
+      if (ph.length != 10 || isNaN(ph)) {
+        alert("Please enter a valid 10-digit phone number");
+        return false;
+      }
+
+      alert("Phone number is valid");
+      return true;
+    }
+
+    function validateAll() {
+      return UnameValidation() && pwdvalidation() && emailvalidation() && phnovalidation();
+    }
+  </script>
+</head>
+<body bgcolor="pink">
+  <center>
+    <h2>ONLINE REGISTRATION PAGE</h2>
+    <form name="regform" action="Login.html" method="post" onsubmit="return validateAll()">
+      <h3>
+        First Name: <input type="text" name="fname" maxlength="20" size="25" onblur="UnameValidation();"><br><br>
+        Last Name: <input type="text" name="lname" maxlength="20" size="25" ><br><br>
+        Password: <input type="password" name="pwd" maxlength="20" size="25" ><br><br>
+        Confirm Password: <input type="password" name="cpwd" maxlength="20" size="25" onblur="pwdvalidation"><br><br>
+        Gender:
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female<br><br>
+        Email-ID: <input type="text" name="email" maxlength="40" size="35" onblur="emailvalidation();"><br><br>
+        Phone Number: <input type="text" name="phno" maxlength="10" size="25" onblur="phnovalidation();"><br><br>
+        <input type="submit" value="SUBMIT">
+        <input type="reset" value="RESET">
+      </h3>
+    </form>
+  </center>
+</body>
+</html>

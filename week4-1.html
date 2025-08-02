@@ -1,0 +1,45 @@
+<!DOCTYPE> 
+<HTML> 
+    <head>
+         <title>Login page</title> 
+         <link rel="stylesheet" href="styles.css"> 
+    </head>
+<body bgcolor="f3e5f5" align="center">
+<br><br>
+<h1>Welcome to Login Page</h1>
+<br><br>
+<form id="box">
+<font size=4>
+<label>Username : </label>
+<input type="text" id="user" placeholder="Enter your username"><br><br>
+<label>Password : </label>
+<input type="password" id="pass" placeh                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     older="Enter your password"><br><br>
+
+&nbsp; &ensp;
+<a href="#">Forgot Password?</a>
+<br><br>
+
+<button onclick="return login();">Login</button>
+
+<button>Reset</button>
+<br><br>
+
+<SMALL>Don't have an account?</SMALL>
+<a href="#">Create account</a>
+
+</font> </form>
+<script>
+function login(){
+user=document.getElementById("user").value;
+pass=document.getElementById("pass").value;
+if(user==="system" && pass==="manager"){
+window.location.replace("week3.html");
+return false;
+}else{
+alert("Invalid credentials");
+return false;
+}
+}
+</script>
+</body>
+</html>
